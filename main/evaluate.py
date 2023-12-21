@@ -104,7 +104,7 @@ def evaluate_wordsim(model, params):
     _, c4 = get_correlation(simlex, model, params)
     s="{0} {1} {2} {3} ws353 ws-sim ws-rel sl999".format(c1, c2, c3, c4)
 
-    print s
+    print (s)
 
 def evaluate_sentencesim(model, params):
     prefix = "../data/"
@@ -121,4 +121,4 @@ def evaluate_sentencesim(model, params):
     for i,j,k in zip(parr,sarr,farr):
         s += str(i)+" "+str(j)+" "+k+" | "
 
-    print s
+    print(s)

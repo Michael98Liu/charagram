@@ -3,7 +3,7 @@ mkdir data
 cd data
 
 #get wordsim353
-wget http://www.cs.technion.ac.il/~gabr/resources/data/wordsim353/wordsim353.zip
+wget https://gabrilovich.com/resources/data/wordsim353/wordsim353.zip
 unzip wordsim353.zip -d wordsim
 mv wordsim/combined.tab wordsim353.txt
 rm -Rf wordsim

@@ -3,14 +3,14 @@ import numpy as np
 from theano import tensor as T
 from theano import config
 import lasagne
-import cPickle
+import pickle as cPickle
 
 class charagram_model(object):
 
     def __init__(self, params):
 
         self.featuremap = self.get_feature_map(params.featurefile,params.cutoff)
-        print "Features:", len(self.featuremap)
+        print( "Features:", len(self.featuremap ))
 
         if params.loadmodel:
             p = cPickle.load(file(params.loadmodel, 'rb'))
@@ -77,7 +77,7 @@ class charagram_model(object):
                                                    ], cost, updates=updates)
 
     def get_feature_map(self, featurefile, cutoff):
-        f = open(featurefile,'r')
+        f = open(featurefile,'r',encoding='latin-1')
         lines = f.readlines()
         idx = 0
         feature_map = {}
@@ -88,7 +88,7 @@ class charagram_model(object):
             ct = float(i[1])
             if ct >= cutoff:
                 if gr in feature_map:
-                    print "Error: feature overlap"
+                    print( "Error: feature overlap" )
                     continue
                 feature_map[gr] = idx
                 idx += 1
